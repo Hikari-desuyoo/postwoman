@@ -1,4 +1,5 @@
 require_relative __dir__ + '/../lib/dependencies.rb'
+require 'pty'
 
 package_path = File.join(Dir.tmpdir, 'my_package')
 dotfile_path = File.join(Dir.tmpdir, '.postwoman')

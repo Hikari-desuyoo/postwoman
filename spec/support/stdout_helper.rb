@@ -3,8 +3,12 @@ module StdoutHelper
     original_stdout = $stdout
     $stdout = StringIO.new
     block.call
-    $stdout.string.gsub(/\e\[([;\d]+)?m/, '')
+    unstyled($stdout.string)
   ensure
     $stdout = original_stdout
+  end
+
+  def unstyled(string)
+    string.gsub(/\e\[([;\d]+)?m/, '')
   end
 end
